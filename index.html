@@ -12,19 +12,48 @@
 <style>
 html{scroll-behavior:smooth}
 body{margin:0;--gut:clamp(18px,4.4vw,32px);--sec:clamp(52px,7.4vw,80px)}
+*,*::before,*::after{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
+img,svg,video{max-width:100%}
+[id]{scroll-margin-top:88px}
 a:hover{color:var(--color-accent-600)}
 summary::-webkit-details-marker{display:none}
+@media (max-width:900px){
+.mobile-static{position:static!important;top:auto!important}
+.mobile-safe-pad{padding-inline:var(--gut)!important}
+}
+@media (max-width:767px){
+body{--gut:clamp(16px,5vw,22px);--sec:clamp(44px,12vw,60px)}
+.site-nav{min-height:56px;flex-wrap:nowrap!important;align-items:center}
+.site-nav-links{margin-left:auto;flex-wrap:nowrap!important;gap:0!important}
+.nav-section-link{display:none!important}
+.site-nav-cta{padding:10px 14px!important;font-size:13px!important;line-height:1.1;white-space:nowrap}
+.hero-actions{width:100%}
+.hero-actions .btn{width:100%;min-width:0;justify-content:space-between!important;white-space:normal}
+.mobile-two-col{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.mobile-price-hook{max-width:none!important;font-size:clamp(24px,8vw,32px)!important;line-height:1!important;overflow-wrap:anywhere}
+.mobile-consultation{align-items:flex-start!important}
+.mobile-consultation img{width:96px!important;height:120px!important}
+.mobile-consultation>div{flex-basis:170px!important}
+}
+@media (max-width:359px){
+.site-nav-cta{padding:9px 11px!important;font-size:12px!important}
+.hero-actions .btn{padding-inline:var(--space-4)!important}
+.price-row{flex-wrap:nowrap!important;gap:6px!important}
+.price-row span:nth-child(2){font-size:clamp(54px,18vw,62px)!important}
+.price-row span:nth-child(3){font-size:16px!important}
+}
 </style>
 </helmet>
 
-<div style="position:sticky;top:0;z-index:60;background:var(--color-bg)">
-<div class="nav" style="max-width:1320px;margin:0 auto;padding:var(--space-3) var(--gut);flex-wrap:wrap;gap:var(--space-2) var(--space-4)">
+<div class="site-header" style="position:sticky;top:0;z-index:60;background:var(--color-bg)">
+<div class="nav site-nav" style="max-width:1320px;margin:0 auto;padding:var(--space-3) var(--gut);flex-wrap:wrap;gap:var(--space-2) var(--space-4)">
 <span class="nav-brand" style="margin-right:auto;font-size:clamp(15px,4vw,18px)">MÉTODO&nbsp;<span style="color:var(--color-accent)">021</span></span>
-<div style="display:flex;align-items:center;flex-wrap:wrap;gap:var(--space-2) var(--space-6)">
-<a href="#metodo">O método</a>
-<a href="#rafa">A Rafa</a>
-<a href="#faq">Dúvidas</a>
-<a class="btn btn-primary" href="#preco" style="padding:var(--space-2) var(--space-4)">Assinar · R$ 19,90</a>
+<div class="site-nav-links" style="display:flex;align-items:center;flex-wrap:wrap;gap:var(--space-2) var(--space-6)">
+<a class="nav-section-link" href="#metodo">O método</a>
+<a class="nav-section-link" href="#rafa">A Rafa</a>
+<a class="nav-section-link" href="#faq">Dúvidas</a>
+<a class="btn btn-primary site-nav-cta" href="#preco" style="padding:var(--space-2) var(--space-4)">Assinar · R$ 19,90</a>
 </div>
 </div>
 </div>
@@ -42,7 +71,7 @@ summary::-webkit-details-marker{display:none}
 <h6 style="margin:0;color:var(--color-accent)">Treino + alimentação · por Rafa</h6>
 <h1 style="margin:var(--space-6) 0 0;font-size:clamp(42px,8.6vw,102px);line-height:.88;letter-spacing:-.042em;text-transform:uppercase">Você treina.<br>Mas não<br><span style="color:var(--color-accent)">muda.</span></h1>
 <p style="margin:var(--space-6) 0 0;max-width:480px;font-size:clamp(16px,2.2vw,18px);line-height:1.6;text-wrap:pretty">Não é falta de vontade — é falta de método. O Método 021 é o treino, o plano alimentar e o acompanhamento mensal da Rafa, montados pro seu corpo, sua rotina e a comida que você já come.</p>
-<div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:var(--space-3);margin-top:var(--space-8)">
+<div class="hero-actions" style="display:flex;flex-wrap:wrap;align-items:stretch;gap:var(--space-3);margin-top:var(--space-8)">
 <a class="btn btn-primary" href="#preco" style="flex:1 1 auto;justify-content:flex-start;padding:var(--space-4) var(--space-6);font-size:clamp(15px,2vw,16px);gap:var(--space-4)">Quero começar<span style="font-weight:400;opacity:.85">R$ 19,90/mês</span></a>
 <a class="btn btn-secondary" href="#metodo" style="flex:1 1 auto;justify-content:flex-start;padding:var(--space-4) var(--space-6);font-size:clamp(15px,2vw,16px)">Ver o que está incluso</a>
 </div>
@@ -56,7 +85,7 @@ summary::-webkit-details-marker{display:none}
 
 <section style="border-bottom:2px solid var(--color-divider)">
 <div style="max-width:1320px;margin:0 auto;padding:0 calc(var(--gut) - var(--space-4))">
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:2px;background:var(--color-divider)">
+<div class="mobile-two-col" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:2px;background:var(--color-divider)">
 <div style="background:var(--color-bg);padding:var(--space-6) var(--space-4)"><h6 style="margin:0;color:var(--color-accent)">Onde</h6><p style="margin:var(--space-2) 0 0;font-size:15px;font-weight:600">Academia ou casa</p></div>
 <div style="background:var(--color-bg);padding:var(--space-6) var(--space-4)"><h6 style="margin:0;color:var(--color-accent)">Formato</h6><p style="margin:var(--space-2) 0 0;font-size:15px;font-weight:600">App + PDF + vídeos</p></div>
 <div style="background:var(--color-bg);padding:var(--space-6) var(--space-4)"><h6 style="margin:0;color:var(--color-accent)">Suporte</h6><p style="margin:var(--space-2) 0 0;font-size:15px;font-weight:600">Grupo no WhatsApp</p></div>
@@ -95,7 +124,7 @@ summary::-webkit-details-marker{display:none}
 </section>
 
 <div style="max-width:1320px;margin:0 auto;padding:0 var(--gut)">
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:2px;background:var(--color-divider);border-bottom:2px solid var(--color-divider)">
+<div class="mobile-two-col" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:2px;background:var(--color-divider);border-bottom:2px solid var(--color-divider)">
 <img class="grayscale" src="img/plates.jpg" alt="Barra e anilhas" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
 <img class="grayscale" src="img/legcurl.jpg" alt="Mesa flexora" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
 <img class="grayscale" src="img/gloves.jpg" alt="Luvas de boxe" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
@@ -105,7 +134,7 @@ summary::-webkit-details-marker{display:none}
 
 <section id="metodo" style="border-bottom:2px solid var(--color-divider)">
 <div style="max-width:1320px;margin:0 auto;padding:var(--sec) var(--gut);display:flex;flex-wrap:wrap;gap:var(--space-8) calc(var(--space-8) * 2);align-items:flex-start">
-<div style="flex:.8 1 300px;min-width:0;position:sticky;top:calc(var(--space-8) * 2.6)">
+<div class="mobile-static" style="flex:.8 1 300px;min-width:0;position:sticky;top:calc(var(--space-8) * 2.6)">
 <h6 style="margin:0;color:var(--color-accent)">O que você recebe</h6>
 <h2 style="margin:var(--space-6) 0 0;font-size:clamp(30px,5.4vw,46px);line-height:1.02;letter-spacing:-.03em;text-wrap:balance">Tudo o que a Rafa faz, organizado pra você.</h2>
 <p class="text-muted" style="margin:var(--space-4) 0 0;max-width:330px;font-size:16px;text-wrap:pretty">Sete coisas. Nenhuma delas é "conteúdo extra" pra encher o carrinho — é o que você precisa pra treinar amanhã de manhã.</p>
@@ -142,7 +171,7 @@ summary::-webkit-details-marker{display:none}
 <h4 style="margin:var(--space-3) 0 0;font-size:21px">Grupo no WhatsApp</h4>
 <p class="text-muted" style="margin:var(--space-2) 0 0;font-size:15px;text-wrap:pretty">A turma inteira treinando junto, tirando dúvida e postando o treino do dia. É muito mais difícil desistir com gente olhando.</p>
 </div>
-<div style="background:var(--color-surface);padding:var(--space-6);grid-column:1/-1;display:flex;flex-wrap:wrap;gap:var(--space-6);align-items:center">
+<div class="mobile-consultation" style="background:var(--color-surface);padding:var(--space-6);grid-column:1/-1;display:flex;flex-wrap:wrap;gap:var(--space-6);align-items:center">
 <img class="grayscale" src="img/mirror.jpg" alt="Rafa na academia" loading="lazy" style="flex:none;width:120px;height:150px;object-fit:cover">
 <div style="flex:1 1 260px;min-width:0">
 <h6 style="margin:0;color:var(--color-accent)">07 · O coração do método</h6>
@@ -155,7 +184,7 @@ summary::-webkit-details-marker{display:none}
 </section>
 
 <section style="border-bottom:2px solid var(--color-divider)">
-<div style="max-width:1320px;margin:0 auto;padding:var(--sec) calc(var(--gut) - var(--space-6))">
+<div class="mobile-safe-pad" style="max-width:1320px;margin:0 auto;padding:var(--sec) calc(var(--gut) - var(--space-6))">
 <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4) var(--space-8);flex-wrap:wrap;margin:0 var(--space-6) var(--space-8)">
 <h2 style="margin:0;font-size:clamp(28px,4.8vw,40px);letter-spacing:-.03em">Como funciona</h2>
 <p class="text-muted" style="margin:0;font-size:15px">Do pagamento ao primeiro treino: menos de 48 horas.</p>
@@ -192,7 +221,7 @@ summary::-webkit-details-marker{display:none}
 <h2 style="margin:var(--space-6) 0 0;font-size:clamp(38px,6.6vw,56px);line-height:1;letter-spacing:-.035em;text-transform:uppercase">Oi, eu sou<br>a <span style="color:var(--color-accent)">Rafa.</span></h2>
 <p style="margin:var(--space-6) 0 0;max-width:520px;font-size:17px;line-height:1.65;text-wrap:pretty">Eu comecei exatamente onde você está: entrando na academia sem saber pra onde ir, copiando treino de internet, começando dieta na segunda e desistindo na quinta.</p>
 <p style="margin:var(--space-3) 0 0;max-width:520px;font-size:17px;line-height:1.65;text-wrap:pretty">O que mudou tudo não foi um treino secreto — foi ter <strong>método e alguém olhando</strong>. Hoje treino pesado, como bem, como o que eu gosto, e não vivo mais de dieta maluca. O Método 021 é isso, escrito pra caber na sua vida.</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:2px;background:var(--color-divider);margin-top:var(--space-8);border-top:2px solid var(--color-divider)">
+<div class="mobile-two-col" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:2px;background:var(--color-divider);margin-top:var(--space-8);border-top:2px solid var(--color-divider)">
 <div style="background:var(--color-bg);padding:var(--space-4) var(--space-4) 0 0"><span style="display:block;font-family:var(--font-heading);font-weight:800;font-size:32px;letter-spacing:-.03em">021</span><span class="text-muted" style="display:block;font-size:13px;margin-top:var(--space-1)">Rio de Janeiro</span></div>
 <div style="background:var(--color-bg);padding:var(--space-4)"><span style="display:block;font-family:var(--font-heading);font-weight:800;font-size:32px;letter-spacing:-.03em">1</span><span class="text-muted" style="display:block;font-size:13px;margin-top:var(--space-1)">plano por aluna, nunca copiado</span></div>
 <div style="background:var(--color-bg);padding:var(--space-4)"><span style="display:block;font-family:var(--font-heading);font-weight:800;font-size:32px;letter-spacing:-.03em">7</span><span class="text-muted" style="display:block;font-size:13px;margin-top:var(--space-1)">dias de garantia</span></div>
@@ -204,7 +233,7 @@ summary::-webkit-details-marker{display:none}
 
 <sc-if value="{{ mostrarGaleria }}" hint-placeholder-val="{{ true }}">
 <div style="max-width:1320px;margin:0 auto;padding:0 var(--gut)">
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:2px;background:var(--color-divider);border-bottom:2px solid var(--color-divider)">
+<div class="mobile-two-col" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:2px;background:var(--color-divider);border-bottom:2px solid var(--color-divider)">
 <img class="grayscale" src="img/jeans.jpg" alt="Rafa" loading="lazy" style="width:100%;aspect-ratio:4/5;object-fit:cover">
 <img class="grayscale" src="img/elevator.jpg" alt="Rafa" loading="lazy" style="width:100%;aspect-ratio:4/5;object-fit:cover">
 <img class="grayscale" src="img/dog.jpg" alt="O cachorro da Rafa" loading="lazy" style="width:100%;aspect-ratio:4/5;object-fit:cover">
@@ -214,7 +243,7 @@ summary::-webkit-details-marker{display:none}
 </sc-if>
 
 <section style="border-bottom:2px solid var(--color-divider)">
-<div style="max-width:1320px;margin:0 auto;padding:var(--sec) calc(var(--gut) - var(--space-6))">
+<div class="mobile-safe-pad" style="max-width:1320px;margin:0 auto;padding:var(--sec) calc(var(--gut) - var(--space-6))">
 <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4) var(--space-6);flex-wrap:wrap;margin:0 var(--space-6) var(--space-6)">
 <h2 style="margin:0;font-size:clamp(28px,4.8vw,40px);letter-spacing:-.03em">Quem já treina com a Rafa</h2>
 <span class="tag tag-outline">Espaço reservado — enviar prints</span>
@@ -252,7 +281,7 @@ summary::-webkit-details-marker{display:none}
 
 <section style="background:var(--color-accent);color:var(--color-bg)">
 <div style="max-width:1320px;margin:0 auto;padding:calc(var(--sec) * 1.05) var(--gut)">
-<h2 style="margin:0;max-width:19ch;font-size:clamp(34px,6.6vw,88px);line-height:.94;letter-spacing:-.04em;text-transform:uppercase">Um mês de acompanhamento custa menos que um lanche.</h2>
+<h2 class="mobile-price-hook" style="margin:0;max-width:19ch;font-size:clamp(34px,6.6vw,88px);line-height:.94;letter-spacing:-.04em;text-transform:uppercase">Um mês de acompanhamento custa menos que um lanche.</h2>
 </div>
 </section>
 
@@ -264,7 +293,7 @@ summary::-webkit-details-marker{display:none}
 <h6 style="margin:0;color:var(--color-accent)">Plano mensal · Método 021</h6>
 <span class="tag tag-accent">Turma de agosto</span>
 </div>
-<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--space-2);margin-top:var(--space-4)">
+<div class="price-row" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--space-2);margin-top:var(--space-4)">
 <span style="font-family:var(--font-heading);font-weight:800;font-size:clamp(20px,3.4vw,28px);letter-spacing:-.02em">R$</span>
 <span style="font-family:var(--font-heading);font-weight:800;font-size:clamp(62px,13vw,104px);line-height:.82;letter-spacing:-.05em">19,90</span>
 <span style="font-family:var(--font-heading);font-weight:800;font-size:clamp(17px,2.8vw,22px);color:var(--color-neutral-600)">/mês</span>
@@ -298,7 +327,7 @@ summary::-webkit-details-marker{display:none}
 
 <section id="faq" style="border-bottom:2px solid var(--color-divider)">
 <div style="max-width:1320px;margin:0 auto;padding:var(--sec) var(--gut);display:flex;flex-wrap:wrap;gap:var(--space-6) calc(var(--space-8) * 2);align-items:flex-start">
-<div style="flex:.7 1 280px;min-width:0;position:sticky;top:calc(var(--space-8) * 2.6)">
+<div class="mobile-static" style="flex:.7 1 280px;min-width:0;position:sticky;top:calc(var(--space-8) * 2.6)">
 <h6 style="margin:0;color:var(--color-accent)">Dúvidas</h6>
 <h2 style="margin:var(--space-6) 0 0;font-size:clamp(28px,5vw,42px);line-height:1.02;letter-spacing:-.03em">Antes de você perguntar.</h2>
 </div>
